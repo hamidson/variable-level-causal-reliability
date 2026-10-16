@@ -1,0 +1,3 @@
+Case,Variable,SupportMethods,N_support_methods,R_V_family,R_V_equal,FamilySelected_theta_2_3,EqualSelected_theta_2_3,SimpleMajoritySelected_0_5,ExpectedMeaning
+Redundant-family spurious,X_spurious,PCMCI+|PCMCI|LPCMCI,3,0.3333333333333333,0.6000000000000001,False,False,True,Three redundant CI-family methods support a spurious variable
+Cross-family true,X_true,PCMCI+|VAR-LiNGAM|DYNOTEARS,3,0.7777777777777777,0.6000000000000001,True,False,True,Support is distributed across three distinct families

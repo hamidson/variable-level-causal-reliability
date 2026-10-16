@@ -1,0 +1,10 @@
+{
+  "synthetic_runs_expected": 90,
+  "synthetic_runs_completed": 90,
+  "family_imbalance_controlled_ok": true,
+  "family_composition_rows": 1350,
+  "theta_rows": 630,
+  "pi_rows": 450,
+  "lorenz_rows": 100,
+  "causaltime_rows": 684
+}

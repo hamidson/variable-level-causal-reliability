@@ -1,0 +1,271 @@
+{
+  "notebook": "0.8-ACIJ-FINAL-RUN",
+  "RUN_MODE": "paper",
+  "FAST_MODE": false,
+  "config": {
+    "target": "Y",
+    "max_lag": 5,
+    "pcmci_pc_alpha": 0.05,
+    "varlingam_coef_threshold": 0.08,
+    "varlingam_prune": true,
+    "dynotears_lambda_w": 0.03,
+    "dynotears_lambda_a": 0.03,
+    "dynotears_w_threshold": 0.08,
+    "dynotears_max_iter": 40,
+    "dynotears_optimizer_maxiter": 400,
+    "dynotears_h_tol": 1e-08,
+    "dynotears_rho_max": 1e+16,
+    "kernel": "exponential",
+    "kernel_bandwidth": 1.0,
+    "theta_v": 0.6666666666666666,
+    "theta_exact": 0.5,
+    "theta_proximity": 0.55,
+    "theta_margin": 0.05,
+    "tie_tol": 1e-10,
+    "rv_strategy": "family_normalized"
+  },
+  "method_family": {
+    "PCMCI+": "conditional_independence",
+    "PCMCI": "conditional_independence",
+    "LPCMCI": "conditional_independence",
+    "VAR-LiNGAM": "non_gaussian_svar",
+    "DYNOTEARS": "continuous_score_optimization"
+  },
+  "family_description": {
+    "conditional_independence": "constraint/conditional-independence time-series causal discovery",
+    "non_gaussian_svar": "non-Gaussian structural VAR identification",
+    "continuous_score_optimization": "continuous score-based structure optimization"
+  },
+  "scenarios": [
+    {
+      "name": "S1_clean",
+      "n_samples": 500,
+      "burn_in": 350,
+      "rho_x": 0.3,
+      "rho_y": 0.3,
+      "rho_noise": 0.25,
+      "noise_y": 0.8,
+      "beta1": 0.8,
+      "beta2": 0.6,
+      "lag1": 2,
+      "lag2": 4,
+      "x3_corr": 0.0,
+      "n_extra_noise": 0,
+      "nonlinear": false,
+      "noise_dist": "laplace",
+      "note": "nazorat uchun nisbatan oson chiziqli Laplace-noise holat"
+    },
+    {
+      "name": "S2_tiny_weak",
+      "n_samples": 110,
+      "burn_in": 350,
+      "rho_x": 0.3,
+      "rho_y": 0.3,
+      "rho_noise": 0.25,
+      "noise_y": 2.0,
+      "beta1": 0.45,
+      "beta2": 0.35,
+      "lag1": 2,
+      "lag2": 4,
+      "x3_corr": 0.0,
+      "n_extra_noise": 0,
+      "nonlinear": false,
+      "noise_dist": "laplace",
+      "note": "juda kichik tanlanma + kuchsiz ta’sir"
+    },
+    {
+      "name": "S3_noisy_weak",
+      "n_samples": 180,
+      "burn_in": 350,
+      "rho_x": 0.3,
+      "rho_y": 0.3,
+      "rho_noise": 0.25,
+      "noise_y": 3.0,
+      "beta1": 0.4,
+      "beta2": 0.3,
+      "lag1": 2,
+      "lag2": 4,
+      "x3_corr": 0.0,
+      "n_extra_noise": 0,
+      "nonlinear": false,
+      "noise_dist": "laplace",
+      "note": "kuchli Laplace shovqin + kuchsiz ta’sir"
+    },
+    {
+      "name": "S4_extreme_autocorr",
+      "n_samples": 180,
+      "burn_in": 350,
+      "rho_x": 0.95,
+      "rho_y": 0.9,
+      "rho_noise": 0.25,
+      "noise_y": 1.8,
+      "beta1": 0.5,
+      "beta2": 0.4,
+      "lag1": 2,
+      "lag2": 4,
+      "x3_corr": 0.0,
+      "n_extra_noise": 0,
+      "nonlinear": false,
+      "noise_dist": "laplace",
+      "note": "juda kuchli avtokorrelyatsiya"
+    },
+    {
+      "name": "S5_correlated_distractor",
+      "n_samples": 180,
+      "burn_in": 350,
+      "rho_x": 0.3,
+      "rho_y": 0.3,
+      "rho_noise": 0.25,
+      "noise_y": 1.8,
+      "beta1": 0.45,
+      "beta2": 0.35,
+      "lag1": 2,
+      "lag2": 4,
+      "x3_corr": 0.95,
+      "n_extra_noise": 0,
+      "nonlinear": false,
+      "noise_dist": "laplace",
+      "note": "X3 X1 bilan kuchli bog‘langan, lekin Y ning bevosita sababi emas"
+    },
+    {
+      "name": "S6_high_dimensional",
+      "n_samples": 160,
+      "burn_in": 350,
+      "rho_x": 0.65,
+      "rho_y": 0.3,
+      "rho_noise": 0.55,
+      "noise_y": 2.0,
+      "beta1": 0.45,
+      "beta2": 0.35,
+      "lag1": 2,
+      "lag2": 4,
+      "x3_corr": 0.0,
+      "n_extra_noise": 6,
+      "nonlinear": false,
+      "noise_dist": "laplace",
+      "note": "kichikroq N + ko‘p ahamiyatsiz o‘zgaruvchilar"
+    },
+    {
+      "name": "S7_mixed_extreme",
+      "n_samples": 130,
+      "burn_in": 350,
+      "rho_x": 0.9,
+      "rho_y": 0.8,
+      "rho_noise": 0.25,
+      "noise_y": 2.8,
+      "beta1": 0.4,
+      "beta2": 0.3,
+      "lag1": 2,
+      "lag2": 4,
+      "x3_corr": 0.9,
+      "n_extra_noise": 4,
+      "nonlinear": false,
+      "noise_dist": "laplace",
+      "note": "kichik N + autocorr + distractor + shovqin + kuchsiz ta’sir"
+    },
+    {
+      "name": "S8_nonlinear",
+      "n_samples": 220,
+      "burn_in": 350,
+      "rho_x": 0.3,
+      "rho_y": 0.3,
+      "rho_noise": 0.25,
+      "noise_y": 1.5,
+      "beta1": 0.8,
+      "beta2": 0.6,
+      "lag1": 2,
+      "lag2": 4,
+      "x3_corr": 0.0,
+      "n_extra_noise": 2,
+      "nonlinear": true,
+      "noise_dist": "laplace",
+      "note": "nochiziqli sababli ta’sirlar"
+    },
+    {
+      "name": "S9_gaussian_assumption_violation",
+      "n_samples": 220,
+      "burn_in": 350,
+      "rho_x": 0.3,
+      "rho_y": 0.3,
+      "rho_noise": 0.25,
+      "noise_y": 1.5,
+      "beta1": 0.6,
+      "beta2": 0.45,
+      "lag1": 2,
+      "lag2": 4,
+      "x3_corr": 0.0,
+      "n_extra_noise": 0,
+      "nonlinear": false,
+      "noise_dist": "gaussian",
+      "note": "VAR-LiNGAM non-Gaussian farazi ataylab buzilgan Gaussian ssenariy"
+    }
+  ],
+  "seeds": [
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110
+  ],
+  "compositions": {
+    "1:1:1": [
+      "PCMCI+",
+      "VAR-LiNGAM",
+      "DYNOTEARS"
+    ],
+    "2:1:1": [
+      "PCMCI+",
+      "PCMCI",
+      "VAR-LiNGAM",
+      "DYNOTEARS"
+    ],
+    "3:1:1": [
+      "PCMCI+",
+      "PCMCI",
+      "LPCMCI",
+      "VAR-LiNGAM",
+      "DYNOTEARS"
+    ]
+  },
+  "theta_grid": [
+    0.34,
+    0.5,
+    0.6,
+    0.6666666666666666,
+    0.75,
+    0.85,
+    1.0
+  ],
+  "pi_settings": {
+    "equal": {
+      "conditional_independence": 0.3333333333333333,
+      "non_gaussian_svar": 0.3333333333333333,
+      "continuous_score_optimization": 0.3333333333333333
+    },
+    "CI_heavy": {
+      "conditional_independence": 0.5,
+      "non_gaussian_svar": 0.25,
+      "continuous_score_optimization": 0.25
+    },
+    "CI_light": {
+      "conditional_independence": 0.2,
+      "non_gaussian_svar": 0.4,
+      "continuous_score_optimization": 0.4
+    },
+    "SVAR_heavy": {
+      "conditional_independence": 0.25,
+      "non_gaussian_svar": 0.5,
+      "continuous_score_optimization": 0.25
+    },
+    "Score_heavy": {
+      "conditional_independence": 0.25,
+      "non_gaussian_svar": 0.25,
+      "continuous_score_optimization": 0.5
+    }
+  }
+}

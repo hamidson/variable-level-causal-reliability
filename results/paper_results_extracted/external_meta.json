@@ -1,0 +1,81 @@
+{
+  "lorenz_status": {
+    "PCMCI+": "OK",
+    "PCMCI": "OK",
+    "LPCMCI": "OK",
+    "VAR-LiNGAM": "OK",
+    "DYNOTEARS": "OK"
+  },
+  "causaltime_meta": [
+    {
+      "domain": "medical",
+      "n_sequences": 480,
+      "time_step": 40,
+      "n_nodes": 20,
+      "linked_length": 19679,
+      "transpose_graph": false,
+      "status": {
+        "PCMCI+": "OK(cache)",
+        "PCMCI": "OK(cache)",
+        "VAR-LiNGAM": "OK(cache)",
+        "DYNOTEARS": "OK(cache)"
+      },
+      "times": {
+        "PCMCI+": 0.0,
+        "PCMCI": 0.0,
+        "VAR-LiNGAM": 0.0,
+        "DYNOTEARS": 0.0
+      },
+      "method_composition": "2:1:1"
+    },
+    {
+      "domain": "pm25",
+      "n_sequences": 480,
+      "time_step": 40,
+      "n_nodes": 36,
+      "linked_length": 19679,
+      "transpose_graph": false,
+      "status": {
+        "PCMCI+": "OK(cache)",
+        "PCMCI": "OK(cache)",
+        "VAR-LiNGAM": "OK",
+        "DYNOTEARS": "OK"
+      },
+      "times": {
+        "PCMCI+": 0.0,
+        "PCMCI": 0.0,
+        "VAR-LiNGAM": 333.0244391260003,
+        "DYNOTEARS": 386.3552960749985
+      },
+      "method_composition": "2:1:1"
+    },
+    {
+      "domain": "traffic",
+      "n_sequences": 480,
+      "time_step": 40,
+      "n_nodes": 20,
+      "linked_length": 19679,
+      "transpose_graph": false,
+      "status": {
+        "PCMCI+": "OK",
+        "PCMCI": "OK",
+        "VAR-LiNGAM": "OK",
+        "DYNOTEARS": "OK"
+      },
+      "times": {
+        "PCMCI+": 21.27955400999963,
+        "PCMCI": 29.039400940000633,
+        "VAR-LiNGAM": 100.46817277599985,
+        "DYNOTEARS": 95.18317426999965
+      },
+      "method_composition": "2:1:1"
+    }
+  ],
+  "causaltime_root": "/content/drive/MyDrive/PhD_Boyxorozova/data/causaltime_gen_ver1.0",
+  "causaltime_domains": [
+    "medical",
+    "pm25",
+    "traffic"
+  ],
+  "causaltime_max_lag": 1
+}
