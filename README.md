@@ -10,46 +10,56 @@ Authors:
 - Shakhlo Khabibullayeva
 - Akbar Qurbonov
 
-## What this repository contains
+## Overview
 
-This repository provides the final experimental outputs and the code required to inspect and reproduce the evaluation of the family-normalized variable-level causal reliability score.
+This repository contains the publication-facing code, archived experimental outputs, and supporting documentation for the family-normalized variable-level causal reliability framework.
 
-The experimental study includes:
-
+The study evaluates:
 - 9 synthetic stress scenarios × 10 seeds = 90 datasets;
-- 1:1:1, 2:1:1, and 3:1:1 method-family composition experiments;
+- 1:1:1, 2:1:1, and 3:1:1 method-family compositions;
 - controlled family-imbalance patterns;
 - threshold sensitivity;
 - family-prior sensitivity;
-- Lorenz-96 evaluation;
-- CausalTime medical, PM2.5, and traffic evaluation;
+- Lorenz-96;
+- CausalTime medical, PM2.5, and traffic domains;
+- binary Precision/Recall/F1;
 - threshold-free Average Precision and ROC-AUC;
 - paired Wilcoxon signed-rank tests with Holm correction.
 
 ## Method families
 
-- Conditional independence: PCMCI+, PCMCI, LPCMCI
-- Non-Gaussian SVAR: VAR-LiNGAM
-- Continuous-score optimization: DYNOTEARS
+- **Conditional independence:** PCMCI+, PCMCI, LPCMCI
+- **Non-Gaussian SVAR:** VAR-LiNGAM
+- **Continuous-score optimization:** DYNOTEARS
 
 ## Repository structure
 
 ```text
 code/
-data/
-    synthetic/
-    lorenz96/
-    causaltime/
-results/
+    CausalTemporalFS_ACIJ_Reproducible.ipynb
+    causal_temporal_fs_acij.py
+    README.md
 docs/
+    DATA_AVAILABILITY.md
+    RESULTS_CHECK.md
+    REPRODUCIBILITY.md
+    UPLOAD_CHECKLIST.md
+results/
+    archived experiment outputs and post-processing results
 README.md
 CITATION.cff
+requirements.txt
 ```
+
+## Code
+
+`code/CausalTemporalFS_ACIJ_Reproducible.ipynb` is the publication-clean reproducibility notebook derived from the final experimental notebook used for the study. Scientific computation and experiment order are preserved, while development-only smoke/recovery/display cells, execution outputs, and transient notebook metadata were removed.
+
+`code/causal_temporal_fs_acij.py` is a source-oriented analogue of the same experimental pipeline. It uses `# %%` cell separators so it can be reviewed easily on GitHub and run interactively in compatible IDEs.
 
 ## Final experiment status
 
 The archived publication gate confirms:
-
 - synthetic runs: 90/90 complete;
 - controlled family-imbalance check: passed;
 - family-composition rows: 1350;
@@ -60,27 +70,20 @@ The archived publication gate confirms:
 
 ## External data
 
-CausalTime is an external public benchmark. It should be obtained from its official upstream distribution. This repository contains our derived evaluation outputs and should contain our preprocessing/evaluation code, but the external benchmark itself is not redistributed here by default.
+Synthetic and Lorenz-96 data are generated computationally by the code.
 
-## Important code file
-
-The exact final Colab notebook used for the publication run must be added as:
-
-`code/CausalTemporalFS_ACIJ_Final.ipynb`
-
-Original notebook name used during the study:
-
-`CausalTemporalFS_v08_ACIJ_FINAL_RUN_CLEAN(1).ipynb`
-
-The current archive contains the final results but **does not yet contain that notebook**. Add the exact notebook before publishing the GitHub repository.
+CausalTime is an external public benchmark and is not redistributed here by default. The repository contains our preprocessing/evaluation logic and derived results. Users should obtain CausalTime from its official upstream distribution.
 
 ## Main threshold-free external result
 
 Pooled over 77 evaluable external targets:
-
 - AP: 0.4856 vs 0.4635, paired Wilcoxon p = 0.00004
 - ROC-AUC: 0.6373 vs 0.6275, p = 0.03335
 
-After Holm correction, the clearest domain-level result is CausalTime-PM2.5 AP, adjusted p = 0.00147.
+After Holm correction, the strongest domain-level result is CausalTime-PM2.5 AP, adjusted p = 0.00147.
 
-The method is therefore presented as a reliability/ranking representation, not as a universally superior fixed-threshold binary selector.
+These results support family normalization as a continuous reliability/ranking representation rather than as a universally superior fixed-threshold binary selector.
+
+## Reproducibility note
+
+The full causal-discovery experiment is computationally expensive. Archived final outputs are provided so that reported tables and statistical analyses can be inspected without rerunning all base-method computations.
