@@ -1,0 +1,9 @@
+numpy
+pandas
+matplotlib
+scipy
+scikit-learn
+statsmodels
+ipython
+tigramite==5.2.10.1
+lingam==1.13.0

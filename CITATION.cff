@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated ACIJ article."
+title: "Variable-Level Causal Reliability from Heterogeneous Causal Discovery Methods in Multivariate Time Series"
+type: software
+authors:
+  - family-names: Mamaraufov
+    given-names: Odil
+  - family-names: Boykhurozova
+    given-names: Gulrukhora
+  - family-names: Khabibullayeva
+    given-names: Shakhlo
+  - family-names: Qurbonov
+    given-names: Akbar
